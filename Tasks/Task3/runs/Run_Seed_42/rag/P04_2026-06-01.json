@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P04",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Ember Canopy (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Ananya Mehta",
+    "department": "Electrical Engineering",
+    "budget_inr": 1900000,
+    "approval_status": "PENDING"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-009",
+    "DOC-051",
+    "DOC-026",
+    "DOC-028",
+    "DOC-039"
+  ],
+  "read_ids": [
+    "DOC-009",
+    "DOC-051",
+    "DOC-026"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-06-01, who is responsible for project Ember Canopy (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-06-01, who is responsible for project Ember Canopy (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-009",
+            "title": "Initial Approval Status Notice: Ember Canopy (P04)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-051",
+            "title": "Revised Approval Status Notice: Ember Canopy (P04)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-028",
+            "title": "Initial Budget Authorization: Ember Canopy (P04)",
+            "issue_date": "2026-01-31",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-039",
+            "title": "Revised Budget Authorization: Ember Canopy (P04)",
+            "issue_date": "2026-04-22",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-009\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-009"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-009",
+          "title": "Initial Approval Status Notice: Ember Canopy (P04)",
+          "issue_date": "2026-01-28",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Ember Canopy (P04), effective 1 February 2026. The approval status of the project is APPROVED. This is the initial notice. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-051\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-051"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-051",
+          "title": "Revised Approval Status Notice: Ember Canopy (P04)",
+          "issue_date": "2026-04-10",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Ember Canopy (P04), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-026\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-026"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-026",
+          "title": "Project Registration: Ember Canopy (P04)",
+          "issue_date": "2026-01-09",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Ember Canopy (P04). The designated project leader is Ananya Mehta, and the project is housed in the Department of Electrical Engineering. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Ananya Mehta\", \"department\": \"Department of Electrical Engineering\", \"budget_inr\": \"INSUFFICIENT EVIDENCE\", \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-026\", \"department\": \"DOC-026\", \"budget_inr\": \"INSUFFICIENT EVIDENCE\", \"approval_status\": \"DOC-051\"}}}, \"justification\": \"As of 2026-06-01, the latest applicable ISSUED document for approval status is DOC-051, effective 2026-05-01, which states the approval status is PENDING. The project registration (DOC-026), effective on issue date 2026-01-09, provides the leader (Ananya Mehta) and department (Department of Electrical Engineering). No budget authorization document is available in the provided set, so the budget cannot be determined.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Ananya Mehta",
+            "department": "Department of Electrical Engineering",
+            "budget_inr": "INSUFFICIENT EVIDENCE",
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-026",
+              "department": "DOC-026",
+              "budget_inr": "INSUFFICIENT EVIDENCE",
+              "approval_status": "DOC-051"
+            }
+          }
+        },
+        "justification": "As of 2026-06-01, the latest applicable ISSUED document for approval status is DOC-051, effective 2026-05-01, which states the approval status is PENDING. The project registration (DOC-026), effective on issue date 2026-01-09, provides the leader (Ananya Mehta) and department (Department of Electrical Engineering). No budget authorization document is available in the provided set, so the budget cannot be determined."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Ananya Mehta"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Electrical Engineering"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 1900000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "PENDING"
+      }
+    }
+  }
+}

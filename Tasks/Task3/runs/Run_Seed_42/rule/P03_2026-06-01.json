@@ -1,0 +1,268 @@
+{
+  "method": "rule",
+  "pid": "P03",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Aurora Atlas (P03), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Ananya Reddy",
+    "department": "Data Science",
+    "budget_inr": 3250000,
+    "approval_status": "PENDING",
+    "support": {
+      "leader": "DOC-063",
+      "department": "DOC-063",
+      "budget_inr": "DOC-066",
+      "approval_status": "DOC-002"
+    }
+  },
+  "truth": {
+    "leader": "Ananya Reddy",
+    "department": "Data Science",
+    "budget_inr": 3250000,
+    "approval_status": "PENDING"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 8,
+  "n_search": 2,
+  "n_read": 3,
+  "budget_remaining": 4,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-063",
+    "DOC-011",
+    "DOC-020",
+    "DOC-026",
+    "DOC-027",
+    "DOC-001",
+    "DOC-066",
+    "DOC-052",
+    "DOC-002"
+  ],
+  "read_ids": [
+    "DOC-063",
+    "DOC-066",
+    "DOC-002"
+  ],
+  "J": 0.8,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P03 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P03 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-063",
+            "title": "Project Registration: Aurora Atlas (P03)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-020",
+            "title": "Project Registration: Cobalt Relay (P06)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Project Registration: Tidal Lattice (P01)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-063\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-063"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-063",
+          "title": "Project Registration: Aurora Atlas (P03)",
+          "issue_date": "2026-01-11",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Aurora Atlas (P03). The designated project leader is Ananya Reddy, and the project is housed in the Department of Data Science. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P03 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P03 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-001",
+            "title": "Initial Budget Authorization: Aurora Atlas (P03)",
+            "issue_date": "2026-01-23",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-066",
+            "title": "Revised Budget Authorization: Aurora Atlas (P03)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-063",
+            "title": "Project Registration: Aurora Atlas (P03)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-052",
+            "title": "Draft Memorandum: Aurora Atlas (P03)",
+            "issue_date": "2026-06-02",
+            "status": "DRAFT"
+          },
+          {
+            "doc_id": "DOC-002",
+            "title": "Revised Approval Status Notice: Aurora Atlas (P03)",
+            "issue_date": "2026-04-22",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-066\"}, \"justification\": \"rule: read BUD_REV for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-066"
+        },
+        "justification": "rule: read BUD_REV for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-066",
+          "title": "Revised Budget Authorization: Aurora Atlas (P03)",
+          "issue_date": "2026-04-10",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Aurora Atlas (P03), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 3,250,000. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-002\"}, \"justification\": \"rule: read APP_REV for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-002"
+        },
+        "justification": "rule: read APP_REV for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-002",
+          "title": "Revised Approval Status Notice: Aurora Atlas (P03)",
+          "issue_date": "2026-04-22",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Aurora Atlas (P03), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 4
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Ananya Reddy\", \"department\": \"Data Science\", \"budget_inr\": 3250000, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-063\", \"department\": \"DOC-063\", \"budget_inr\": \"DOC-066\", \"approval_status\": \"DOC-002\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Ananya Reddy",
+            "department": "Data Science",
+            "budget_inr": 3250000,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-063",
+              "department": "DOC-063",
+              "budget_inr": "DOC-066",
+              "approval_status": "DOC-002"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 4
+    }
+  ],
+  "failure_category": null
+}

@@ -1,0 +1,323 @@
+{
+  "method": "rule",
+  "pid": "P04",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Vertex Lattice (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Rahul Sharma",
+    "department": "Chemical Engineering",
+    "budget_inr": 2450000,
+    "approval_status": "APPROVED",
+    "support": {
+      "leader": "DOC-064",
+      "department": "DOC-064",
+      "budget_inr": "DOC-018",
+      "approval_status": "DOC-022"
+    }
+  },
+  "truth": {
+    "leader": "Rahul Sharma",
+    "department": "Chemical Engineering",
+    "budget_inr": 2450000,
+    "approval_status": "APPROVED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 9,
+  "n_search": 3,
+  "n_read": 3,
+  "budget_remaining": 3,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-064",
+    "DOC-009",
+    "DOC-028",
+    "DOC-014",
+    "DOC-019",
+    "DOC-018",
+    "DOC-050",
+    "DOC-057",
+    "DOC-062",
+    "DOC-022",
+    "DOC-007",
+    "DOC-012",
+    "DOC-038"
+  ],
+  "read_ids": [
+    "DOC-064",
+    "DOC-018",
+    "DOC-022"
+  ],
+  "J": 0.9,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-064",
+            "title": "Project Registration: Vertex Lattice (P04)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-009",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-028",
+            "title": "Project Registration: Meridian Forge (P11)",
+            "issue_date": "2026-01-13",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-014",
+            "title": "Project Registration: Vertex Grid (P03)",
+            "issue_date": "2026-01-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-019",
+            "title": "Project Registration: Quasar Lattice (P12)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-064\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-064"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-064",
+          "title": "Project Registration: Vertex Lattice (P04)",
+          "issue_date": "2026-01-08",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Vertex Lattice (P04). The designated project leader is Rahul Sharma, and the project is housed in the Department of Chemical Engineering. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-018",
+            "title": "Revised Budget Authorization: Vertex Lattice (P04)",
+            "issue_date": "2026-04-06",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Initial Budget Authorization: Vertex Lattice (P04)",
+            "issue_date": "2026-01-27",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-064",
+            "title": "Project Registration: Vertex Lattice (P04)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-057",
+            "title": "Draft Memorandum: Vertex Lattice (P04)",
+            "issue_date": "2026-06-13",
+            "status": "DRAFT"
+          },
+          {
+            "doc_id": "DOC-062",
+            "title": "Initial Approval Status Notice: Vertex Lattice (P04)",
+            "issue_date": "2026-01-22",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-018\"}, \"justification\": \"rule: read BUD_REV for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-018"
+        },
+        "justification": "rule: read BUD_REV for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-018",
+          "title": "Revised Budget Authorization: Vertex Lattice (P04)",
+          "issue_date": "2026-04-06",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Vertex Lattice (P04), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 2,450,000. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 approval status notice\", \"k\": 5}, \"justification\": \"rule: locate APP documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 approval status notice",
+          "k": 5
+        },
+        "justification": "rule: locate APP documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-062",
+            "title": "Initial Approval Status Notice: Vertex Lattice (P04)",
+            "issue_date": "2026-01-22",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-022",
+            "title": "Revised Approval Status Notice: Vertex Lattice (P04)",
+            "issue_date": "2026-04-16",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-007",
+            "title": "Initial Approval Status Notice: Helios Forge (P06)",
+            "issue_date": "2026-01-29",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-012",
+            "title": "Initial Approval Status Notice: Helios Relay (P01)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-038",
+            "title": "Initial Approval Status Notice: Quasar Lattice (P12)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-022\"}, \"justification\": \"rule: read APP_REV for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-022"
+        },
+        "justification": "rule: read APP_REV for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-022",
+          "title": "Revised Approval Status Notice: Vertex Lattice (P04)",
+          "issue_date": "2026-04-16",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Vertex Lattice (P04), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is APPROVED. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 3
+    },
+    {
+      "step": 7,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Rahul Sharma\", \"department\": \"Chemical Engineering\", \"budget_inr\": 2450000, \"approval_status\": \"APPROVED\", \"support\": {\"leader\": \"DOC-064\", \"department\": \"DOC-064\", \"budget_inr\": \"DOC-018\", \"approval_status\": \"DOC-022\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Rahul Sharma",
+            "department": "Chemical Engineering",
+            "budget_inr": 2450000,
+            "approval_status": "APPROVED",
+            "support": {
+              "leader": "DOC-064",
+              "department": "DOC-064",
+              "budget_inr": "DOC-018",
+              "approval_status": "DOC-022"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 3
+    }
+  ],
+  "failure_category": null
+}

@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P08",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Borealis Lattice (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Kavya Joshi",
+    "department": "Data Science",
+    "budget_inr": 500000,
+    "approval_status": "PENDING"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-015",
+    "DOC-064",
+    "DOC-043",
+    "DOC-050",
+    "DOC-057"
+  ],
+  "read_ids": [
+    "DOC-015",
+    "DOC-064",
+    "DOC-043"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-03-01, who is responsible for project Borealis Lattice (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-03-01, who is responsible for project Borealis Lattice (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-015",
+            "title": "Initial Approval Status Notice: Borealis Lattice (P08)",
+            "issue_date": "2026-01-27",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-064",
+            "title": "Initial Budget Authorization: Borealis Lattice (P08)",
+            "issue_date": "2026-01-24",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-043",
+            "title": "Revised Approval Status Notice: Borealis Lattice (P08)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Project Registration: Borealis Lattice (P08)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-057",
+            "title": "Revised Budget Authorization: Borealis Lattice (P08)",
+            "issue_date": "2026-04-06",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-015\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-015"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-015",
+          "title": "Initial Approval Status Notice: Borealis Lattice (P08)",
+          "issue_date": "2026-01-27",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Borealis Lattice (P08), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-064\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-064"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-064",
+          "title": "Initial Budget Authorization: Borealis Lattice (P08)",
+          "issue_date": "2026-01-24",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Borealis Lattice (P08), effective 1 February 2026. The authorized budget for the project is INR 500,000. This is the initial authorization. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-043\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-043"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-043",
+          "title": "Revised Approval Status Notice: Borealis Lattice (P08)",
+          "issue_date": "2026-04-10",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Borealis Lattice (P08), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": 500000, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": \"DOC-064\", \"approval_status\": \"DOC-015\"}}}, \"justification\": \"As of 2026-03-01, the effective date of DOC-043 (2026-05-01) is after the query date, so it is not applicable. DOC-015 and DOC-064 are both ISSUED and effective from 2026-02-01, which is before the query date, so they are applicable. The latest applicable ISSUED documents for budget and approval status are DOC-064 and DOC-015, respectively. However, the project registration (which provides leader and department) is not available in the documents, so leader and department cannot be determined. Therefore, the answer includes INSUFFICIENT EVIDENCE for leader and department, while budget and approval status are derived from the applicable documents.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "INSUFFICIENT EVIDENCE",
+            "department": "INSUFFICIENT EVIDENCE",
+            "budget_inr": 500000,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "INSUFFICIENT EVIDENCE",
+              "department": "INSUFFICIENT EVIDENCE",
+              "budget_inr": "DOC-064",
+              "approval_status": "DOC-015"
+            }
+          }
+        },
+        "justification": "As of 2026-03-01, the effective date of DOC-043 (2026-05-01) is after the query date, so it is not applicable. DOC-015 and DOC-064 are both ISSUED and effective from 2026-02-01, which is before the query date, so they are applicable. The latest applicable ISSUED documents for budget and approval status are DOC-064 and DOC-015, respectively. However, the project registration (which provides leader and department) is not available in the documents, so leader and department cannot be determined. Therefore, the answer includes INSUFFICIENT EVIDENCE for leader and department, while budget and approval status are derived from the applicable documents."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE', 'INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Kavya Joshi"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Data Science"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 500000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "PENDING"
+      }
+    }
+  }
+}

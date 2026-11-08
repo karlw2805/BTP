@@ -1,0 +1,274 @@
+{
+  "method": "llm",
+  "pid": "P07",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Meera Rao",
+    "department": "Department of Applied Mathematics",
+    "budget_inr": 1750000,
+    "approval_status": "REJECTED",
+    "support": {
+      "leader": "DOC-009",
+      "department": "DOC-009",
+      "budget_inr": "DOC-044",
+      "approval_status": "DOC-047"
+    }
+  },
+  "truth": {
+    "leader": "Meera Rao",
+    "department": "Applied Mathematics",
+    "budget_inr": 1750000,
+    "approval_status": "REJECTED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 11,
+  "n_search": 1,
+  "n_read": 5,
+  "budget_remaining": 1,
+  "budget_exhausted": false,
+  "n_llm_calls": 7,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-009",
+    "DOC-044",
+    "DOC-015",
+    "DOC-002",
+    "DOC-047"
+  ],
+  "read_ids": [
+    "DOC-009",
+    "DOC-044",
+    "DOC-015",
+    "DOC-002",
+    "DOC-047"
+  ],
+  "J": 1.2400000000000002,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"k\": 5}, \"justification\": \"To identify the authoritative documents governing the project's leadership, department, budget, and approval status as of 2026-06-01, a search for the project registration and related issuances is required.\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status",
+          "k": 5
+        },
+        "justification": "To identify the authoritative documents governing the project's leadership, department, budget, and approval status as of 2026-06-01, a search for the project registration and related issuances is required."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 12 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 15\n\nACTION_HISTORY: []\n\nSEEN_DOCUMENTS (from search results): []\n\nREAD_DOCUMENTS (full text of every document you have read):\n[]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-009",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-044",
+            "title": "Revised Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-015",
+            "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-25",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-002",
+            "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-047",
+            "title": "Revised Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-04-15",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 2,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-009\"}, \"justification\": \"The project registration document contains the leader, department, and issue date necessary to determine the current project details as of 2026-06-01.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-009"
+        },
+        "justification": "The project registration document contains the leader, department, and issue date necessary to determine the current project details as of 2026-06-01."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 11 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 14\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: {\"search_results\": [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\"}]}\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-009",
+          "title": "Project Registration: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-18",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 3,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-044\"}, \"justification\": \"The revised budget authorization document must be read to determine the latest authorized budget, as it is the most recent ISSUED document for budget.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-044"
+        },
+        "justification": "The revised budget authorization document must be read to determine the latest authorized budget, as it is the most recent ISSUED document for budget."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 9 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 13\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-009\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-009\",\n  \"title\": \"Project Registration: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-18\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-044",
+          "title": "Revised Budget Authorization: Cobalt Nexus (P07)",
+          "issue_date": "2026-04-10",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,750,000. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 4,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-015\"}, \"justification\": \"To determine the initial budget authorization, which may be relevant if the revised one is not yet effective.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-015"
+        },
+        "justification": "To determine the initial budget authorization, which may be relevant if the revised one is not yet effective."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 7 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 12\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-009\"}, {\"action\": \"read\", \"doc_id\": \"DOC-044\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-009\",\n  \"title\": \"Project Registration: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-18\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes.\"\n },\n {\n  \"doc_id\": \"DOC-044\",\n  \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-04-10\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised budget authorization for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,750,000. The contents are subject to the standard institutional review cycle.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-015",
+          "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-25",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 1,600,000. This is the initial authorization. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 5,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-002\"}, \"justification\": \"DOC-002 is the next un-read ISSUED document that may contain the approval status, which is required for the final answer.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-002"
+        },
+        "justification": "DOC-002 is the next un-read ISSUED document that may contain the approval status, which is required for the final answer."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 5 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 11\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-009\"}, {\"action\": \"read\", \"doc_id\": \"DOC-044\"}, {\"action\": \"read\", \"doc_id\": \"DOC-015\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-009\",\n  \"title\": \"Project Registration: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-18\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes.\"\n },\n {\n  \"doc_id\": \"DOC-044\",\n  \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-04-10\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised budget authorization for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,750,000. The contents are subject to the standard institutional review cycle.\"\n },\n {\n  \"doc_id\": \"DOC-015\",\n  \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-25\",\n  \"effective_date\": \"2026-02-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 1,600,000. This is the initial authorization. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-002",
+          "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-28",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Cobalt Nexus (P07), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 3
+    },
+    {
+      "step": 6,
+      "llm_calls": 6,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-047\"}, \"justification\": \"DOC-047 is the only remaining un-read document and may contain the latest approval status, which is critical for determining the current approval status as of 2026-06-01.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-047"
+        },
+        "justification": "DOC-047 is the only remaining un-read document and may contain the latest approval status, which is critical for determining the current approval status as of 2026-06-01."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 3,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 3 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 10\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-009\"}, {\"action\": \"read\", \"doc_id\": \"DOC-044\"}, {\"action\": \"read\", \"doc_id\": \"DOC-015\"}, {\"action\": \"read\", \"doc_id\": \"DOC-002\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-009\",\n  \"title\": \"Project Registration: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-18\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes.\"\n },\n {\n  \"doc_id\": \"DOC-044\",\n  \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-04-10\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised budget authorization for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,750,000. The contents are subject to the standard institutional review cycle.\"\n },\n {\n  \"doc_id\": \"DOC-015\",\n  \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-25\",\n  \"effective_date\": \"2026-02-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 1,600,000. This is the initial authorization. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-002\",\n  \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-28\",\n  \"effective_date\": \"2026-02-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Approval status notice for project Cobalt Nexus (P07), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-047",
+          "title": "Revised Approval Status Notice: Cobalt Nexus (P07)",
+          "issue_date": "2026-04-15",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 1
+    },
+    {
+      "step": 7,
+      "llm_calls": 7,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Meera Rao\", \"department\": \"Department of Applied Mathematics\", \"budget_inr\": 1750000, \"approval_status\": \"REJECTED\", \"support\": {\"leader\": \"DOC-009\", \"department\": \"DOC-009\", \"budget_inr\": \"DOC-044\", \"approval_status\": \"DOC-047\"}}}, \"justification\": \"All required attributes are determined from the latest applicable ISSUED documents effective on or before 2026-06-01.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Meera Rao",
+            "department": "Department of Applied Mathematics",
+            "budget_inr": 1750000,
+            "approval_status": "REJECTED",
+            "support": {
+              "leader": "DOC-009",
+              "department": "DOC-009",
+              "budget_inr": "DOC-044",
+              "approval_status": "DOC-047"
+            }
+          }
+        },
+        "justification": "All required attributes are determined from the latest applicable ISSUED documents effective on or before 2026-06-01."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 1,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 1 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 9\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Cobalt Nexus P07 registration, status, leader, department, budget authorization, approval status\", \"returned\": [\"DOC-009\", \"DOC-044\", \"DOC-015\", \"DOC-002\", \"DOC-047\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-009\"}, {\"action\": \"read\", \"doc_id\": \"DOC-044\"}, {\"action\": \"read\", \"doc_id\": \"DOC-015\"}, {\"action\": \"read\", \"doc_id\": \"DOC-002\"}, {\"action\": \"read\", \"doc_id\": \"DOC-047\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-009\", \"title\": \"Project Registration: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-18\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-044\", \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-10\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-015\", \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-25\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-002\", \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-01-28\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-047\", \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\", \"issue_date\": \"2026-04-15\", \"status\": \"ISSUED\", \"read\": true}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-009\",\n  \"title\": \"Project Registration: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-18\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Cobalt Nexus (P07). The designated project leader is Meera Rao, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes.\"\n },\n {\n  \"doc_id\": \"DOC-044\",\n  \"title\": \"Revised Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-04-10\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised budget authorization for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,750,000. The contents are subject to the standard institutional review cycle.\"\n },\n {\n  \"doc_id\": \"DOC-015\",\n  \"title\": \"Initial Budget Authorization: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-25\",\n  \"effective_date\": \"2026-02-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 1,600,000. This is the initial authorization. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-002\",\n  \"title\": \"Initial Approval Status Notice: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-01-28\",\n  \"effective_date\": \"2026-02-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Approval status notice for project Cobalt Nexus (P07), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-047\",\n  \"title\": \"Revised Approval Status Notice: Cobalt Nexus (P07)\",\n  \"issue_date\": \"2026-04-15\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised approval status notice for project Cobalt Nexus (P07), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. Questions regarding this record should be directed to the Office of Sponsored Research.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read."
+    }
+  ],
+  "failure_category": null
+}

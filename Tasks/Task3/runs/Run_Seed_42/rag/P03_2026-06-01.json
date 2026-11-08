@@ -1,0 +1,218 @@
+{
+  "method": "rag",
+  "pid": "P03",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Aurora Atlas (P03), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Ananya Reddy",
+    "department": "Data Science",
+    "budget_inr": 3250000,
+    "approval_status": "PENDING"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "finish",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-001",
+    "DOC-002",
+    "DOC-067",
+    "DOC-063",
+    "DOC-066"
+  ],
+  "read_ids": [
+    "DOC-001",
+    "DOC-002",
+    "DOC-067"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-06-01, who is responsible for project Aurora Atlas (P03), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-06-01, who is responsible for project Aurora Atlas (P03), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-001",
+            "title": "Initial Budget Authorization: Aurora Atlas (P03)",
+            "issue_date": "2026-01-23",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-002",
+            "title": "Revised Approval Status Notice: Aurora Atlas (P03)",
+            "issue_date": "2026-04-22",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-067",
+            "title": "Initial Approval Status Notice: Aurora Atlas (P03)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-063",
+            "title": "Project Registration: Aurora Atlas (P03)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-066",
+            "title": "Revised Budget Authorization: Aurora Atlas (P03)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-001\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-001"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-001",
+          "title": "Initial Budget Authorization: Aurora Atlas (P03)",
+          "issue_date": "2026-01-23",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Aurora Atlas (P03), effective 1 February 2026. The authorized budget for the project is INR 3,700,000. This is the initial authorization. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-002\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-002"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-002",
+          "title": "Revised Approval Status Notice: Aurora Atlas (P03)",
+          "issue_date": "2026-04-22",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Aurora Atlas (P03), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-067\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-067"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-067",
+          "title": "Initial Approval Status Notice: Aurora Atlas (P03)",
+          "issue_date": "2026-01-26",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Aurora Atlas (P03), effective 1 February 2026. The approval status of the project is REJECTED. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": \"INSUFFICIENT EVIDENCE\"}, \"justification\": \"The documents provided do not contain information about the leader or department of project Aurora Atlas (P03). While the authorized budget and approval status can be determined from the latest applicable ISSUED documents, the leader and department are not specified in any of the documents. Therefore, the required information cannot be fully determined.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": "INSUFFICIENT EVIDENCE"
+        },
+        "justification": "The documents provided do not contain information about the leader or department of project Aurora Atlas (P03). While the authorized budget and approval status can be determined from the latest applicable ISSUED documents, the leader and department are not specified in any of the documents. Therefore, the required information cannot be fully determined."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Ananya Reddy"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Data Science"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 3250000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "PENDING"
+      }
+    }
+  }
+}

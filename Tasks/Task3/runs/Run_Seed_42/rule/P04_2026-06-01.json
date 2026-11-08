@@ -1,0 +1,323 @@
+{
+  "method": "rule",
+  "pid": "P04",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Ember Canopy (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Ananya Mehta",
+    "department": "Electrical Engineering",
+    "budget_inr": 1900000,
+    "approval_status": "PENDING",
+    "support": {
+      "leader": "DOC-026",
+      "department": "DOC-026",
+      "budget_inr": "DOC-039",
+      "approval_status": "DOC-051"
+    }
+  },
+  "truth": {
+    "leader": "Ananya Mehta",
+    "department": "Electrical Engineering",
+    "budget_inr": 1900000,
+    "approval_status": "PENDING"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 9,
+  "n_search": 3,
+  "n_read": 3,
+  "budget_remaining": 3,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-026",
+    "DOC-011",
+    "DOC-020",
+    "DOC-027",
+    "DOC-050",
+    "DOC-028",
+    "DOC-039",
+    "DOC-047",
+    "DOC-009",
+    "DOC-051",
+    "DOC-018",
+    "DOC-049",
+    "DOC-072"
+  ],
+  "read_ids": [
+    "DOC-026",
+    "DOC-039",
+    "DOC-051"
+  ],
+  "J": 0.9,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-020",
+            "title": "Project Registration: Cobalt Relay (P06)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Project Registration: Tidal Lattice (P01)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Project Registration: Borealis Lattice (P08)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-026\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-026"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-026",
+          "title": "Project Registration: Ember Canopy (P04)",
+          "issue_date": "2026-01-09",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Ember Canopy (P04). The designated project leader is Ananya Mehta, and the project is housed in the Department of Electrical Engineering. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-028",
+            "title": "Initial Budget Authorization: Ember Canopy (P04)",
+            "issue_date": "2026-01-31",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-039",
+            "title": "Revised Budget Authorization: Ember Canopy (P04)",
+            "issue_date": "2026-04-22",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-047",
+            "title": "Draft Memorandum: Ember Canopy (P04)",
+            "issue_date": "2026-05-18",
+            "status": "DRAFT"
+          },
+          {
+            "doc_id": "DOC-009",
+            "title": "Initial Approval Status Notice: Ember Canopy (P04)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-039\"}, \"justification\": \"rule: read BUD_REV for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-039"
+        },
+        "justification": "rule: read BUD_REV for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-039",
+          "title": "Revised Budget Authorization: Ember Canopy (P04)",
+          "issue_date": "2026-04-22",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Ember Canopy (P04), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,900,000. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P04 approval status notice\", \"k\": 5}, \"justification\": \"rule: locate APP documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P04 approval status notice",
+          "k": 5
+        },
+        "justification": "rule: locate APP documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-009",
+            "title": "Initial Approval Status Notice: Ember Canopy (P04)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-051",
+            "title": "Revised Approval Status Notice: Ember Canopy (P04)",
+            "issue_date": "2026-04-10",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-018",
+            "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-049",
+            "title": "Initial Approval Status Notice: Helios Atlas (P12)",
+            "issue_date": "2026-01-31",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-072",
+            "title": "Initial Approval Status Notice: Cobalt Relay (P06)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-051\"}, \"justification\": \"rule: read APP_REV for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-051"
+        },
+        "justification": "rule: read APP_REV for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-051",
+          "title": "Revised Approval Status Notice: Ember Canopy (P04)",
+          "issue_date": "2026-04-10",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Ember Canopy (P04), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 3
+    },
+    {
+      "step": 7,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Ananya Mehta\", \"department\": \"Electrical Engineering\", \"budget_inr\": 1900000, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-026\", \"department\": \"DOC-026\", \"budget_inr\": \"DOC-039\", \"approval_status\": \"DOC-051\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Ananya Mehta",
+            "department": "Electrical Engineering",
+            "budget_inr": 1900000,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-026",
+              "department": "DOC-026",
+              "budget_inr": "DOC-039",
+              "approval_status": "DOC-051"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 3
+    }
+  ],
+  "failure_category": null
+}

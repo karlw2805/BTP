@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P01",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Tidal Lattice (P01), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Nikhil Iyer",
+    "department": "Applied Mathematics",
+    "budget_inr": 1550000,
+    "approval_status": "PENDING"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-022",
+    "DOC-027",
+    "DOC-048",
+    "DOC-016",
+    "DOC-031"
+  ],
+  "read_ids": [
+    "DOC-022",
+    "DOC-027",
+    "DOC-048"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-06-01, who is responsible for project Tidal Lattice (P01), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-06-01, who is responsible for project Tidal Lattice (P01), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-022",
+            "title": "Initial Approval Status Notice: Tidal Lattice (P01)",
+            "issue_date": "2026-01-27",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Project Registration: Tidal Lattice (P01)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-048",
+            "title": "Revised Approval Status Notice: Tidal Lattice (P01)",
+            "issue_date": "2026-04-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-016",
+            "title": "Initial Budget Authorization: Tidal Lattice (P01)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-031",
+            "title": "Revised Budget Authorization: Tidal Lattice (P01)",
+            "issue_date": "2026-04-16",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-022\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-022"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-022",
+          "title": "Initial Approval Status Notice: Tidal Lattice (P01)",
+          "issue_date": "2026-01-27",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Tidal Lattice (P01), effective 1 February 2026. The approval status of the project is REJECTED. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-027\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-027"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-027",
+          "title": "Project Registration: Tidal Lattice (P01)",
+          "issue_date": "2026-01-18",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Tidal Lattice (P01). The designated project leader is Nikhil Iyer, and the project is housed in the Department of Applied Mathematics. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-048\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-048"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-048",
+          "title": "Revised Approval Status Notice: Tidal Lattice (P01)",
+          "issue_date": "2026-04-12",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Tidal Lattice (P01), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Nikhil Iyer\", \"department\": \"Department of Applied Mathematics\", \"budget_inr\": \"INSUFFICIENT EVIDENCE\", \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-027\", \"department\": \"DOC-027\", \"budget_inr\": \"INSUFFICIENT EVIDENCE\", \"approval_status\": \"DOC-048\"}}}, \"justification\": \"As of 2026-06-01, the latest applicable ISSUED document for each attribute determines the value. The project registration (DOC-027) is ISSUED and effective upon issue date (2026-01-18), so it provides the leader (Nikhil Iyer) and department (Department of Applied Mathematics). The approval status is determined by the latest ISSUED approval-status notice with an effective date on or before 2026-06-01. DOC-022 (effective 2026-02-01) states REJECTED, but DOC-048 (effective 2026-05-01) supersedes it and states PENDING. DOC-048 is ISSUED and effective before the query date, so it is applicable. No budget authorization document is provided, so budget is INSUFFICIENT EVIDENCE.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Nikhil Iyer",
+            "department": "Department of Applied Mathematics",
+            "budget_inr": "INSUFFICIENT EVIDENCE",
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-027",
+              "department": "DOC-027",
+              "budget_inr": "INSUFFICIENT EVIDENCE",
+              "approval_status": "DOC-048"
+            }
+          }
+        },
+        "justification": "As of 2026-06-01, the latest applicable ISSUED document for each attribute determines the value. The project registration (DOC-027) is ISSUED and effective upon issue date (2026-01-18), so it provides the leader (Nikhil Iyer) and department (Department of Applied Mathematics). The approval status is determined by the latest ISSUED approval-status notice with an effective date on or before 2026-06-01. DOC-022 (effective 2026-02-01) states REJECTED, but DOC-048 (effective 2026-05-01) supersedes it and states PENDING. DOC-048 is ISSUED and effective before the query date, so it is applicable. No budget authorization document is provided, so budget is INSUFFICIENT EVIDENCE."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Nikhil Iyer"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Applied Mathematics"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 1550000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "PENDING"
+      }
+    }
+  }
+}

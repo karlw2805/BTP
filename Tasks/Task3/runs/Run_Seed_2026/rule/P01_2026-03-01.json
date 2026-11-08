@@ -1,0 +1,268 @@
+{
+  "method": "rule",
+  "pid": "P01",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Helios Relay (P01), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Tara Rao",
+    "department": "Mechanical Engineering",
+    "budget_inr": 2100000,
+    "approval_status": "PENDING",
+    "support": {
+      "leader": "DOC-042",
+      "department": "DOC-042",
+      "budget_inr": "DOC-063",
+      "approval_status": "DOC-012"
+    }
+  },
+  "truth": {
+    "leader": "Tara Rao",
+    "department": "Mechanical Engineering",
+    "budget_inr": 2100000,
+    "approval_status": "PENDING"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 8,
+  "n_search": 2,
+  "n_read": 3,
+  "budget_remaining": 4,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-042",
+    "DOC-009",
+    "DOC-028",
+    "DOC-014",
+    "DOC-019",
+    "DOC-063",
+    "DOC-003",
+    "DOC-012",
+    "DOC-046"
+  ],
+  "read_ids": [
+    "DOC-042",
+    "DOC-063",
+    "DOC-012"
+  ],
+  "J": 0.8,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P01 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P01 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-042",
+            "title": "Project Registration: Helios Relay (P01)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-009",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-028",
+            "title": "Project Registration: Meridian Forge (P11)",
+            "issue_date": "2026-01-13",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-014",
+            "title": "Project Registration: Vertex Grid (P03)",
+            "issue_date": "2026-01-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-019",
+            "title": "Project Registration: Quasar Lattice (P12)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-042\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-042"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-042",
+          "title": "Project Registration: Helios Relay (P01)",
+          "issue_date": "2026-01-06",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Helios Relay (P01). The designated project leader is Tara Rao, and the project is housed in the Department of Mechanical Engineering. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P01 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P01 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-063",
+            "title": "Initial Budget Authorization: Helios Relay (P01)",
+            "issue_date": "2026-01-25",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-003",
+            "title": "Revised Budget Authorization: Helios Relay (P01)",
+            "issue_date": "2026-04-19",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-042",
+            "title": "Project Registration: Helios Relay (P01)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-012",
+            "title": "Initial Approval Status Notice: Helios Relay (P01)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-046",
+            "title": "Revised Approval Status Notice: Helios Relay (P01)",
+            "issue_date": "2026-04-08",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-063\"}, \"justification\": \"rule: read BUD_INIT for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-063"
+        },
+        "justification": "rule: read BUD_INIT for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-063",
+          "title": "Initial Budget Authorization: Helios Relay (P01)",
+          "issue_date": "2026-01-25",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Helios Relay (P01), effective 1 February 2026. The authorized budget for the project is INR 2,100,000. This is the initial authorization. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-012\"}, \"justification\": \"rule: read APP_INIT for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-012"
+        },
+        "justification": "rule: read APP_INIT for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-012",
+          "title": "Initial Approval Status Notice: Helios Relay (P01)",
+          "issue_date": "2026-01-26",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Helios Relay (P01), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 4
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Tara Rao\", \"department\": \"Mechanical Engineering\", \"budget_inr\": 2100000, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-042\", \"department\": \"DOC-042\", \"budget_inr\": \"DOC-063\", \"approval_status\": \"DOC-012\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Tara Rao",
+            "department": "Mechanical Engineering",
+            "budget_inr": 2100000,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-042",
+              "department": "DOC-042",
+              "budget_inr": "DOC-063",
+              "approval_status": "DOC-012"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 4
+    }
+  ],
+  "failure_category": null
+}

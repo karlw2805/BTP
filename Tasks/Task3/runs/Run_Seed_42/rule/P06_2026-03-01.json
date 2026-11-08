@@ -1,0 +1,268 @@
+{
+  "method": "rule",
+  "pid": "P06",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Cobalt Relay (P06), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Vikram Nair",
+    "department": "Computer Science",
+    "budget_inr": 2000000,
+    "approval_status": "REJECTED",
+    "support": {
+      "leader": "DOC-020",
+      "department": "DOC-020",
+      "budget_inr": "DOC-070",
+      "approval_status": "DOC-072"
+    }
+  },
+  "truth": {
+    "leader": "Vikram Nair",
+    "department": "Computer Science",
+    "budget_inr": 2000000,
+    "approval_status": "REJECTED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 8,
+  "n_search": 2,
+  "n_read": 3,
+  "budget_remaining": 4,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-020",
+    "DOC-011",
+    "DOC-026",
+    "DOC-027",
+    "DOC-050",
+    "DOC-070",
+    "DOC-056",
+    "DOC-072",
+    "DOC-023"
+  ],
+  "read_ids": [
+    "DOC-020",
+    "DOC-070",
+    "DOC-072"
+  ],
+  "J": 0.8,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P06 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P06 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-020",
+            "title": "Project Registration: Cobalt Relay (P06)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Project Registration: Tidal Lattice (P01)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Project Registration: Borealis Lattice (P08)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-020\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-020"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-020",
+          "title": "Project Registration: Cobalt Relay (P06)",
+          "issue_date": "2026-01-20",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Cobalt Relay (P06). The designated project leader is Vikram Nair, and the project is housed in the Department of Computer Science. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P06 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P06 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-070",
+            "title": "Initial Budget Authorization: Cobalt Relay (P06)",
+            "issue_date": "2026-01-24",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-056",
+            "title": "Revised Budget Authorization: Cobalt Relay (P06)",
+            "issue_date": "2026-04-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-020",
+            "title": "Project Registration: Cobalt Relay (P06)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-072",
+            "title": "Initial Approval Status Notice: Cobalt Relay (P06)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-023",
+            "title": "Revised Approval Status Notice: Cobalt Relay (P06)",
+            "issue_date": "2026-04-11",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-070\"}, \"justification\": \"rule: read BUD_INIT for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-070"
+        },
+        "justification": "rule: read BUD_INIT for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-070",
+          "title": "Initial Budget Authorization: Cobalt Relay (P06)",
+          "issue_date": "2026-01-24",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Cobalt Relay (P06), effective 1 February 2026. The authorized budget for the project is INR 2,000,000. This is the initial authorization. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-072\"}, \"justification\": \"rule: read APP_INIT for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-072"
+        },
+        "justification": "rule: read APP_INIT for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-072",
+          "title": "Initial Approval Status Notice: Cobalt Relay (P06)",
+          "issue_date": "2026-01-28",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Cobalt Relay (P06), effective 1 February 2026. The approval status of the project is REJECTED. This is the initial notice. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 4
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Vikram Nair\", \"department\": \"Computer Science\", \"budget_inr\": 2000000, \"approval_status\": \"REJECTED\", \"support\": {\"leader\": \"DOC-020\", \"department\": \"DOC-020\", \"budget_inr\": \"DOC-070\", \"approval_status\": \"DOC-072\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Vikram Nair",
+            "department": "Computer Science",
+            "budget_inr": 2000000,
+            "approval_status": "REJECTED",
+            "support": {
+              "leader": "DOC-020",
+              "department": "DOC-020",
+              "budget_inr": "DOC-070",
+              "approval_status": "DOC-072"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 4
+    }
+  ],
+  "failure_category": null
+}

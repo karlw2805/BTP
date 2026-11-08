@@ -1,0 +1,268 @@
+{
+  "method": "rule",
+  "pid": "P07",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Vikram Joshi",
+    "department": "Data Science",
+    "budget_inr": 800000,
+    "approval_status": "APPROVED",
+    "support": {
+      "leader": "DOC-011",
+      "department": "DOC-011",
+      "budget_inr": "DOC-053",
+      "approval_status": "DOC-018"
+    }
+  },
+  "truth": {
+    "leader": "Vikram Joshi",
+    "department": "Data Science",
+    "budget_inr": 800000,
+    "approval_status": "APPROVED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 8,
+  "n_search": 2,
+  "n_read": 3,
+  "budget_remaining": 4,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-011",
+    "DOC-020",
+    "DOC-026",
+    "DOC-027",
+    "DOC-050",
+    "DOC-053",
+    "DOC-030",
+    "DOC-018",
+    "DOC-007"
+  ],
+  "read_ids": [
+    "DOC-011",
+    "DOC-053",
+    "DOC-018"
+  ],
+  "J": 0.8,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P07 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P07 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-020",
+            "title": "Project Registration: Cobalt Relay (P06)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-026",
+            "title": "Project Registration: Ember Canopy (P04)",
+            "issue_date": "2026-01-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Project Registration: Tidal Lattice (P01)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Project Registration: Borealis Lattice (P08)",
+            "issue_date": "2026-01-20",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-011\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-011"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-011",
+          "title": "Project Registration: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-11",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Cobalt Nexus (P07). The designated project leader is Vikram Joshi, and the project is housed in the Department of Data Science. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P07 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P07 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-053",
+            "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-29",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-030",
+            "title": "Revised Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-04-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-018",
+            "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-007",
+            "title": "Draft Memorandum: Cobalt Nexus (P07)",
+            "issue_date": "2026-03-10",
+            "status": "DRAFT"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-053\"}, \"justification\": \"rule: read BUD_INIT for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-053"
+        },
+        "justification": "rule: read BUD_INIT for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-053",
+          "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-29",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 800,000. This is the initial authorization. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-018\"}, \"justification\": \"rule: read APP_INIT for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-018"
+        },
+        "justification": "rule: read APP_INIT for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-018",
+          "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-28",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Cobalt Nexus (P07), effective 1 February 2026. The approval status of the project is APPROVED. This is the initial notice. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 4
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Vikram Joshi\", \"department\": \"Data Science\", \"budget_inr\": 800000, \"approval_status\": \"APPROVED\", \"support\": {\"leader\": \"DOC-011\", \"department\": \"DOC-011\", \"budget_inr\": \"DOC-053\", \"approval_status\": \"DOC-018\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Vikram Joshi",
+            "department": "Data Science",
+            "budget_inr": 800000,
+            "approval_status": "APPROVED",
+            "support": {
+              "leader": "DOC-011",
+              "department": "DOC-011",
+              "budget_inr": "DOC-053",
+              "approval_status": "DOC-018"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 4
+    }
+  ],
+  "failure_category": null
+}

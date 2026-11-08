@@ -1,0 +1,234 @@
+{
+  "method": "rag",
+  "pid": "P07",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Vikram Joshi",
+    "department": "Department of Data Science",
+    "budget_inr": 800000,
+    "approval_status": "APPROVED",
+    "support": {
+      "leader": "DOC-011",
+      "department": "DOC-011",
+      "budget_inr": "DOC-053",
+      "approval_status": "DOC-018"
+    }
+  },
+  "truth": {
+    "leader": "Vikram Joshi",
+    "department": "Data Science",
+    "budget_inr": 1100000,
+    "approval_status": "PENDING"
+  },
+  "abstained": false,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "budget_inr: DOC-053 superseded by DOC-030",
+    "approval_status: DOC-018 superseded by DOC-061"
+  ],
+  "termination": "finish",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-018",
+    "DOC-011",
+    "DOC-053",
+    "DOC-061",
+    "DOC-030"
+  ],
+  "read_ids": [
+    "DOC-018",
+    "DOC-011",
+    "DOC-053"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-06-01, who is responsible for project Cobalt Nexus (P07), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-018",
+            "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-011",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-11",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-053",
+            "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-29",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-061",
+            "title": "Revised Approval Status Notice: Cobalt Nexus (P07)",
+            "issue_date": "2026-04-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-030",
+            "title": "Revised Budget Authorization: Cobalt Nexus (P07)",
+            "issue_date": "2026-04-09",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-018\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-018"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-018",
+          "title": "Initial Approval Status Notice: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-28",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Cobalt Nexus (P07), effective 1 February 2026. The approval status of the project is APPROVED. This is the initial notice. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-011\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-011"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-011",
+          "title": "Project Registration: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-11",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Cobalt Nexus (P07). The designated project leader is Vikram Joshi, and the project is housed in the Department of Data Science. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-053\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-053"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-053",
+          "title": "Initial Budget Authorization: Cobalt Nexus (P07)",
+          "issue_date": "2026-01-29",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Cobalt Nexus (P07), effective 1 February 2026. The authorized budget for the project is INR 800,000. This is the initial authorization. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Vikram Joshi\", \"department\": \"Department of Data Science\", \"budget_inr\": 800000, \"approval_status\": \"APPROVED\", \"support\": {\"leader\": \"DOC-011\", \"department\": \"DOC-011\", \"budget_inr\": \"DOC-053\", \"approval_status\": \"DOC-018\"}}}, \"justification\": \"As of 2026-06-01, all documents are ISSUED and effective on or before the query date. The latest applicable ISSUED documents determine the values: DOC-011 provides the leader and department, DOC-053 provides the budget, and DOC-018 provides the approval status. All effective dates (2026-02-01) are before the query date (2026-06-01), making them applicable.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Vikram Joshi",
+            "department": "Department of Data Science",
+            "budget_inr": 800000,
+            "approval_status": "APPROVED",
+            "support": {
+              "leader": "DOC-011",
+              "department": "DOC-011",
+              "budget_inr": "DOC-053",
+              "approval_status": "DOC-018"
+            }
+          }
+        },
+        "justification": "As of 2026-06-01, all documents are ISSUED and effective on or before the query date. The latest applicable ISSUED documents determine the values: DOC-011 provides the leader and department, DOC-053 provides the budget, and DOC-018 provides the approval status. All effective dates (2026-02-01) are before the query date (2026-06-01), making them applicable."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5
+    }
+  ],
+  "failure_category": "failure_to_recognize_revision",
+  "failure_analysis": {
+    "failure_category": "failure_to_recognize_revision",
+    "origin_explanation": "LLM Policy / Epistemic Failure: The query date was on or after May 1, 2026, but the model retained outdated initial authorization values instead of searching/reading the revision.",
+    "grounding_violations": [
+      "budget_inr: DOC-053 superseded by DOC-030",
+      "approval_status: DOC-018 superseded by DOC-061"
+    ],
+    "attribute_discrepancies": {
+      "budget_inr": {
+        "claimed": 800000,
+        "true": 1100000
+      },
+      "approval_status": {
+        "claimed": "APPROVED",
+        "true": "PENDING"
+      }
+    }
+  }
+}

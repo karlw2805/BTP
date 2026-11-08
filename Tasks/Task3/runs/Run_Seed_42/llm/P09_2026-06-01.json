@@ -1,0 +1,218 @@
+{
+  "method": "llm",
+  "pid": "P09",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Ananya Gupta",
+    "department": "Department of Electrical Engineering",
+    "budget_inr": 2250000,
+    "approval_status": "REJECTED",
+    "support": {
+      "leader": "DOC-005",
+      "department": "DOC-005",
+      "budget_inr": "DOC-069",
+      "approval_status": "DOC-024"
+    }
+  },
+  "truth": {
+    "leader": "Ananya Gupta",
+    "department": "Electrical Engineering",
+    "budget_inr": 2250000,
+    "approval_status": "REJECTED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 5,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-037",
+    "DOC-024",
+    "DOC-005",
+    "DOC-068",
+    "DOC-069"
+  ],
+  "read_ids": [
+    "DOC-005",
+    "DOC-024",
+    "DOC-069"
+  ],
+  "J": 0.8,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"project Helios Forge P09 registration, budget authorization, approval-status notice\", \"k\": 5}, \"justification\": \"To identify the authoritative documents governing the project's leader, department, budget, and approval status as of 2026-06-01.\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "project Helios Forge P09 registration, budget authorization, approval-status notice",
+          "k": 5
+        },
+        "justification": "To identify the authoritative documents governing the project's leader, department, budget, and approval status as of 2026-06-01."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 12 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 15\n\nACTION_HISTORY: []\n\nSEEN_DOCUMENTS (from search results): []\n\nREAD_DOCUMENTS (full text of every document you have read):\n[]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-037",
+            "title": "Initial Approval Status Notice: Helios Forge (P09)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-024",
+            "title": "Revised Approval Status Notice: Helios Forge (P09)",
+            "issue_date": "2026-04-21",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-005",
+            "title": "Project Registration: Helios Forge (P09)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-068",
+            "title": "Initial Budget Authorization: Helios Forge (P09)",
+            "issue_date": "2026-01-21",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-069",
+            "title": "Revised Budget Authorization: Helios Forge (P09)",
+            "issue_date": "2026-04-20",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 2,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-005\"}, \"justification\": \"The project registration document contains the leader and department information for Helios Forge (P09).\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-005"
+        },
+        "justification": "The project registration document contains the leader and department information for Helios Forge (P09)."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 11 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 14\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Helios Forge P09 registration, budget authorization, approval-status notice\", \"returned\": [\"DOC-037\", \"DOC-024\", \"DOC-005\", \"DOC-068\", \"DOC-069\"]}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-037\", \"title\": \"Initial Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-01-30\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-024\", \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-04-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-005\", \"title\": \"Project Registration: Helios Forge (P09)\", \"issue_date\": \"2026-01-06\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-068\", \"title\": \"Initial Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-01-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-069\", \"title\": \"Revised Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-04-20\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: {\"search_results\": [{\"doc_id\": \"DOC-037\", \"title\": \"Initial Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-01-30\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-024\", \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-04-21\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-005\", \"title\": \"Project Registration: Helios Forge (P09)\", \"issue_date\": \"2026-01-06\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-068\", \"title\": \"Initial Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-01-21\", \"status\": \"ISSUED\"}, {\"doc_id\": \"DOC-069\", \"title\": \"Revised Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-04-20\", \"status\": \"ISSUED\"}]}\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-005",
+          "title": "Project Registration: Helios Forge (P09)",
+          "issue_date": "2026-01-06",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Helios Forge (P09). The designated project leader is Ananya Gupta, and the project is housed in the Department of Electrical Engineering. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 3,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-024\"}, \"justification\": \"To determine the current approval status, the most recent ISSUED approval-status notice must be read.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-024"
+        },
+        "justification": "To determine the current approval status, the most recent ISSUED approval-status notice must be read."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 9 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 13\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Helios Forge P09 registration, budget authorization, approval-status notice\", \"returned\": [\"DOC-037\", \"DOC-024\", \"DOC-005\", \"DOC-068\", \"DOC-069\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-005\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-037\", \"title\": \"Initial Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-01-30\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-024\", \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-04-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-005\", \"title\": \"Project Registration: Helios Forge (P09)\", \"issue_date\": \"2026-01-06\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-068\", \"title\": \"Initial Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-01-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-069\", \"title\": \"Revised Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-04-20\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-005\",\n  \"title\": \"Project Registration: Helios Forge (P09)\",\n  \"issue_date\": \"2026-01-06\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Helios Forge (P09). The designated project leader is Ananya Gupta, and the project is housed in the Department of Electrical Engineering. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-024",
+          "title": "Revised Approval Status Notice: Helios Forge (P09)",
+          "issue_date": "2026-04-21",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 4,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-069\"}, \"justification\": \"DOC-069 is the most recent ISSUED budget authorization document and must be read to determine the current authorized budget.\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-069"
+        },
+        "justification": "DOC-069 is the most recent ISSUED budget authorization document and must be read to determine the current authorized budget."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 7 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 12\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Helios Forge P09 registration, budget authorization, approval-status notice\", \"returned\": [\"DOC-037\", \"DOC-024\", \"DOC-005\", \"DOC-068\", \"DOC-069\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-005\"}, {\"action\": \"read\", \"doc_id\": \"DOC-024\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-037\", \"title\": \"Initial Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-01-30\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-024\", \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-04-21\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-005\", \"title\": \"Project Registration: Helios Forge (P09)\", \"issue_date\": \"2026-01-06\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-068\", \"title\": \"Initial Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-01-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-069\", \"title\": \"Revised Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-04-20\", \"status\": \"ISSUED\", \"read\": false}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-005\",\n  \"title\": \"Project Registration: Helios Forge (P09)\",\n  \"issue_date\": \"2026-01-06\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Helios Forge (P09). The designated project leader is Ananya Gupta, and the project is housed in the Department of Electrical Engineering. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-024\",\n  \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\",\n  \"issue_date\": \"2026-04-21\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised approval status notice for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read.",
+      "observation": {
+        "document": {
+          "doc_id": "DOC-069",
+          "title": "Revised Budget Authorization: Helios Forge (P09)",
+          "issue_date": "2026-04-20",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 2,250,000. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 5,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Ananya Gupta\", \"department\": \"Department of Electrical Engineering\", \"budget_inr\": 2250000, \"approval_status\": \"REJECTED\", \"support\": {\"leader\": \"DOC-005\", \"department\": \"DOC-005\", \"budget_inr\": \"DOC-069\", \"approval_status\": \"DOC-024\"}}}, \"justification\": \"All required attributes are determined from the latest applicable ISSUED documents read, with effective dates on or before the query date.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Ananya Gupta",
+            "department": "Department of Electrical Engineering",
+            "budget_inr": 2250000,
+            "approval_status": "REJECTED",
+            "support": {
+              "leader": "DOC-005",
+              "department": "DOC-005",
+              "budget_inr": "DOC-069",
+              "approval_status": "DOC-024"
+            }
+          }
+        },
+        "justification": "All required attributes are determined from the latest applicable ISSUED documents read, with effective dates on or before the query date."
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "prompt": "You are the decision policy of an evidence-grounded research agent. Choose ONE next action.\n\nInterpretation rules (deterministic):\n1. Only documents with status ISSUED are authoritative. DRAFT documents must never determine the answer.\n2. A document becomes applicable on its effective date (a registration: on its issue date). A document whose effective date is AFTER the query date is not applicable.\n3. For each attribute, the latest applicable ISSUED document determines its value.\n4. Leader and department come from the project registration; budget from budget authorizations; approval status from approval-status notices.\n\nQUESTION: As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\n\nQUERY_DATE: 2026-06-01\n\nTOOL_BUDGET_REMAINING: 5 (search costs 1, read costs 2, finish costs 0; a document may be read only once and only after search returned it)\n\nLLM_CALLS_REMAINING: 11\n\nACTION_HISTORY: [{\"action\": \"search\", \"query\": \"project Helios Forge P09 registration, budget authorization, approval-status notice\", \"returned\": [\"DOC-037\", \"DOC-024\", \"DOC-005\", \"DOC-068\", \"DOC-069\"]}, {\"action\": \"read\", \"doc_id\": \"DOC-005\"}, {\"action\": \"read\", \"doc_id\": \"DOC-024\"}, {\"action\": \"read\", \"doc_id\": \"DOC-069\"}]\n\nSEEN_DOCUMENTS (from search results): [{\"doc_id\": \"DOC-037\", \"title\": \"Initial Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-01-30\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-024\", \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\", \"issue_date\": \"2026-04-21\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-005\", \"title\": \"Project Registration: Helios Forge (P09)\", \"issue_date\": \"2026-01-06\", \"status\": \"ISSUED\", \"read\": true}, {\"doc_id\": \"DOC-068\", \"title\": \"Initial Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-01-21\", \"status\": \"ISSUED\", \"read\": false}, {\"doc_id\": \"DOC-069\", \"title\": \"Revised Budget Authorization: Helios Forge (P09)\", \"issue_date\": \"2026-04-20\", \"status\": \"ISSUED\", \"read\": true}]\n\nREAD_DOCUMENTS (full text of every document you have read):\n[\n {\n  \"doc_id\": \"DOC-005\",\n  \"title\": \"Project Registration: Helios Forge (P09)\",\n  \"issue_date\": \"2026-01-06\",\n  \"effective_date\": null,\n  \"status\": \"ISSUED\",\n  \"content\": \"Registration record for research project Helios Forge (P09). The designated project leader is Ananya Gupta, and the project is housed in the Department of Electrical Engineering. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-024\",\n  \"title\": \"Revised Approval Status Notice: Helios Forge (P09)\",\n  \"issue_date\": \"2026-04-21\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised approval status notice for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. This record was prepared by the Research Finance Office and filed in the institutional repository.\"\n },\n {\n  \"doc_id\": \"DOC-069\",\n  \"title\": \"Revised Budget Authorization: Helios Forge (P09)\",\n  \"issue_date\": \"2026-04-20\",\n  \"effective_date\": \"2026-05-01\",\n  \"status\": \"ISSUED\",\n  \"content\": \"Revised budget authorization for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 2,250,000. Questions regarding this record should be directed to the Office of Sponsored Research.\"\n }\n]\n\nMEMORY_FACTS (facts YOU recorded earlier that the controller verified as faithful): []\n\nLAST_OBSERVATION: you just read the last document in READ_DOCUMENTS; record its facts in memory_update.\n\nReply with ONLY one JSON object, no other text. Besides action/args/justification it may carry an optional\n\"memory_update\": a list of facts you extracted from documents you have READ, each\n{\"attribute\": \"leader|department|budget_inr|approval_status\", \"value\": <exact value as written in the document>,\n \"doc_id\": \"<document it came from>\", \"note\": \"<your judgement: e.g. current / superseded / not yet effective / draft>\"}.\nRecord every attribute value you find in each newly read document, including from drafts (mark them as such in the note).\nA recorded value must literally appear in the cited document; unfaithful entries are rejected and reported back to you.\nFormat:\n{\"action\": \"search\", \"args\": {\"query\": \"<text>\", \"k\": 5}, \"justification\": \"<one sentence>\"}\n{\"action\": \"read\", \"args\": {\"doc_id\": \"<id returned by an earlier search>\"}, \"justification\": \"<one sentence>\"}\n{\"action\": \"finish\", \"args\": {\"answer\": <ANSWER>}, \"justification\": \"<one sentence>\"}\nwhere <ANSWER> is either the string \"INSUFFICIENT EVIDENCE\" or\n{\"leader\": \"...\", \"department\": \"...\", \"budget_inr\": <integer>, \"approval_status\": \"APPROVED|PENDING|REJECTED\",\n \"support\": {\"leader\": \"<doc_id>\", \"department\": \"<doc_id>\", \"budget_inr\": \"<doc_id>\", \"approval_status\": \"<doc_id>\"}}\nEvery doc_id in \"support\" must be a document you have actually read."
+    }
+  ],
+  "failure_category": null
+}

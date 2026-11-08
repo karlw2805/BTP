@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P09",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Ananya Gupta",
+    "department": "Electrical Engineering",
+    "budget_inr": 2250000,
+    "approval_status": "REJECTED"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-037",
+    "DOC-024",
+    "DOC-068",
+    "DOC-069",
+    "DOC-005"
+  ],
+  "read_ids": [
+    "DOC-037",
+    "DOC-024",
+    "DOC-068"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-06-01, who is responsible for project Helios Forge (P09), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-037",
+            "title": "Initial Approval Status Notice: Helios Forge (P09)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-024",
+            "title": "Revised Approval Status Notice: Helios Forge (P09)",
+            "issue_date": "2026-04-21",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-068",
+            "title": "Initial Budget Authorization: Helios Forge (P09)",
+            "issue_date": "2026-01-21",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-069",
+            "title": "Revised Budget Authorization: Helios Forge (P09)",
+            "issue_date": "2026-04-20",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-005",
+            "title": "Project Registration: Helios Forge (P09)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-037\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-037"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-037",
+          "title": "Initial Approval Status Notice: Helios Forge (P09)",
+          "issue_date": "2026-01-30",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Helios Forge (P09), effective 1 February 2026. The approval status of the project is APPROVED. This is the initial notice. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-024\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-024"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-024",
+          "title": "Revised Approval Status Notice: Helios Forge (P09)",
+          "issue_date": "2026-04-21",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Helios Forge (P09), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is REJECTED. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-068\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-068"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-068",
+          "title": "Initial Budget Authorization: Helios Forge (P09)",
+          "issue_date": "2026-01-21",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Budget authorization for project Helios Forge (P09), effective 1 February 2026. The authorized budget for the project is INR 2,300,000. This is the initial authorization. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": 2300000, \"approval_status\": \"REJECTED\", \"support\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": \"DOC-068\", \"approval_status\": \"DOC-024\"}}}, \"justification\": \"As of 2026-06-01, the latest applicable ISSUED document for approval status is DOC-024 (effective 2026-05-01), which states the approval status is REJECTED. The latest applicable ISSUED document for budget is DOC-068 (effective 2026-02-01), which authorizes INR 2,300,000. However, no document provides information about the project leader or department, so this information is INSUFFICIENT EVIDENCE.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "INSUFFICIENT EVIDENCE",
+            "department": "INSUFFICIENT EVIDENCE",
+            "budget_inr": 2300000,
+            "approval_status": "REJECTED",
+            "support": {
+              "leader": "INSUFFICIENT EVIDENCE",
+              "department": "INSUFFICIENT EVIDENCE",
+              "budget_inr": "DOC-068",
+              "approval_status": "DOC-024"
+            }
+          }
+        },
+        "justification": "As of 2026-06-01, the latest applicable ISSUED document for approval status is DOC-024 (effective 2026-05-01), which states the approval status is REJECTED. The latest applicable ISSUED document for budget is DOC-068 (effective 2026-02-01), which authorizes INR 2,300,000. However, no document provides information about the project leader or department, so this information is INSUFFICIENT EVIDENCE."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE', 'INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Ananya Gupta"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Electrical Engineering"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 2250000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "REJECTED"
+      }
+    }
+  }
+}

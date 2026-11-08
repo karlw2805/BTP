@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P04",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Vertex Lattice (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Rahul Sharma",
+    "department": "Chemical Engineering",
+    "budget_inr": 2900000,
+    "approval_status": "PENDING"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-062",
+    "DOC-022",
+    "DOC-018",
+    "DOC-050",
+    "DOC-057"
+  ],
+  "read_ids": [
+    "DOC-062",
+    "DOC-022",
+    "DOC-018"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-03-01, who is responsible for project Vertex Lattice (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-03-01, who is responsible for project Vertex Lattice (P04), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-062",
+            "title": "Initial Approval Status Notice: Vertex Lattice (P04)",
+            "issue_date": "2026-01-22",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-022",
+            "title": "Revised Approval Status Notice: Vertex Lattice (P04)",
+            "issue_date": "2026-04-16",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-018",
+            "title": "Revised Budget Authorization: Vertex Lattice (P04)",
+            "issue_date": "2026-04-06",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-050",
+            "title": "Initial Budget Authorization: Vertex Lattice (P04)",
+            "issue_date": "2026-01-27",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-057",
+            "title": "Draft Memorandum: Vertex Lattice (P04)",
+            "issue_date": "2026-06-13",
+            "status": "DRAFT"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-062\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-062"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-062",
+          "title": "Initial Approval Status Notice: Vertex Lattice (P04)",
+          "issue_date": "2026-01-22",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Vertex Lattice (P04), effective 1 February 2026. The approval status of the project is PENDING. This is the initial notice. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-022\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-022"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-022",
+          "title": "Revised Approval Status Notice: Vertex Lattice (P04)",
+          "issue_date": "2026-04-16",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Vertex Lattice (P04), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is APPROVED. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-018\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-018"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-018",
+          "title": "Revised Budget Authorization: Vertex Lattice (P04)",
+          "issue_date": "2026-04-06",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Vertex Lattice (P04), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 2,450,000. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": 0, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": \"INSUFFICIENT EVIDENCE\", \"approval_status\": \"DOC-062\"}}}, \"justification\": \"As of 2026-03-01, the only applicable document is DOC-062, which has an effective date of 2026-02-01 and is ISSUED. DOC-022 and DOC-018 have effective dates after 2026-03-01 and are therefore not applicable. DOC-062 states the approval status is PENDING. However, no document provides information about the leader or department (which must come from the project registration), and the budget authorization in DOC-062 is not available. Since the budget authorization document (DOC-018) is not effective until 2026-05-01, it is not applicable as of 2026-03-01. Thus, budget and leadership/department information cannot be determined from applicable documents. The latest applicable ISSUED document for approval status is DOC-062, which states PENDING.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "INSUFFICIENT EVIDENCE",
+            "department": "INSUFFICIENT EVIDENCE",
+            "budget_inr": 0,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "INSUFFICIENT EVIDENCE",
+              "department": "INSUFFICIENT EVIDENCE",
+              "budget_inr": "INSUFFICIENT EVIDENCE",
+              "approval_status": "DOC-062"
+            }
+          }
+        },
+        "justification": "As of 2026-03-01, the only applicable document is DOC-062, which has an effective date of 2026-02-01 and is ISSUED. DOC-022 and DOC-018 have effective dates after 2026-03-01 and are therefore not applicable. DOC-062 states the approval status is PENDING. However, no document provides information about the leader or department (which must come from the project registration), and the budget authorization in DOC-062 is not available. Since the budget authorization document (DOC-018) is not effective until 2026-05-01, it is not applicable as of 2026-03-01. Thus, budget and leadership/department information cannot be determined from applicable documents. The latest applicable ISSUED document for approval status is DOC-062, which states PENDING."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE', 'INSUFFICIENT EVIDENCE', 'INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "retrieval_failure",
+  "failure_analysis": {
+    "failure_category": "retrieval_failure",
+    "origin_explanation": "Retrieval Limitation: TF-IDF retrieval ranked irrelevant or competing documents above the required authoritative source, so the agent never observed the document in search results.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Rahul Sharma"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Chemical Engineering"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 2900000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "PENDING"
+      }
+    }
+  }
+}

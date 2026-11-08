@@ -1,0 +1,323 @@
+{
+  "method": "rule",
+  "pid": "P03",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Vertex Grid (P03), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Nikhil Rao",
+    "department": "Data Science",
+    "budget_inr": 1100000,
+    "approval_status": "APPROVED",
+    "support": {
+      "leader": "DOC-014",
+      "department": "DOC-014",
+      "budget_inr": "DOC-067",
+      "approval_status": "DOC-010"
+    }
+  },
+  "truth": {
+    "leader": "Nikhil Rao",
+    "department": "Data Science",
+    "budget_inr": 1100000,
+    "approval_status": "APPROVED"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 9,
+  "n_search": 3,
+  "n_read": 3,
+  "budget_remaining": 3,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-014",
+    "DOC-009",
+    "DOC-028",
+    "DOC-019",
+    "DOC-042",
+    "DOC-067",
+    "DOC-035",
+    "DOC-013",
+    "DOC-025",
+    "DOC-010",
+    "DOC-007",
+    "DOC-012",
+    "DOC-038"
+  ],
+  "read_ids": [
+    "DOC-014",
+    "DOC-067",
+    "DOC-010"
+  ],
+  "J": 0.9,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P03 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P03 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-014",
+            "title": "Project Registration: Vertex Grid (P03)",
+            "issue_date": "2026-01-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-009",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-028",
+            "title": "Project Registration: Meridian Forge (P11)",
+            "issue_date": "2026-01-13",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-019",
+            "title": "Project Registration: Quasar Lattice (P12)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-042",
+            "title": "Project Registration: Helios Relay (P01)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-014\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-014"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-014",
+          "title": "Project Registration: Vertex Grid (P03)",
+          "issue_date": "2026-01-12",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Vertex Grid (P03). The designated project leader is Nikhil Rao, and the project is housed in the Department of Data Science. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P03 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P03 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-067",
+            "title": "Revised Budget Authorization: Vertex Grid (P03)",
+            "issue_date": "2026-04-09",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-035",
+            "title": "Initial Budget Authorization: Vertex Grid (P03)",
+            "issue_date": "2026-01-28",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-014",
+            "title": "Project Registration: Vertex Grid (P03)",
+            "issue_date": "2026-01-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-013",
+            "title": "Draft Memorandum: Vertex Grid (P03)",
+            "issue_date": "2026-06-18",
+            "status": "DRAFT"
+          },
+          {
+            "doc_id": "DOC-025",
+            "title": "Initial Approval Status Notice: Vertex Grid (P03)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-067\"}, \"justification\": \"rule: read BUD_REV for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-067"
+        },
+        "justification": "rule: read BUD_REV for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-067",
+          "title": "Revised Budget Authorization: Vertex Grid (P03)",
+          "issue_date": "2026-04-09",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Vertex Grid (P03), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 1,100,000. Please retain this document for audit purposes."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P03 approval status notice\", \"k\": 5}, \"justification\": \"rule: locate APP documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P03 approval status notice",
+          "k": 5
+        },
+        "justification": "rule: locate APP documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-025",
+            "title": "Initial Approval Status Notice: Vertex Grid (P03)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-010",
+            "title": "Revised Approval Status Notice: Vertex Grid (P03)",
+            "issue_date": "2026-04-24",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-007",
+            "title": "Initial Approval Status Notice: Helios Forge (P06)",
+            "issue_date": "2026-01-29",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-012",
+            "title": "Initial Approval Status Notice: Helios Relay (P01)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-038",
+            "title": "Initial Approval Status Notice: Quasar Lattice (P12)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-010\"}, \"justification\": \"rule: read APP_REV for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-010"
+        },
+        "justification": "rule: read APP_REV for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-010",
+          "title": "Revised Approval Status Notice: Vertex Grid (P03)",
+          "issue_date": "2026-04-24",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Vertex Grid (P03), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is APPROVED. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 3
+    },
+    {
+      "step": 7,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Nikhil Rao\", \"department\": \"Data Science\", \"budget_inr\": 1100000, \"approval_status\": \"APPROVED\", \"support\": {\"leader\": \"DOC-014\", \"department\": \"DOC-014\", \"budget_inr\": \"DOC-067\", \"approval_status\": \"DOC-010\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Nikhil Rao",
+            "department": "Data Science",
+            "budget_inr": 1100000,
+            "approval_status": "APPROVED",
+            "support": {
+              "leader": "DOC-014",
+              "department": "DOC-014",
+              "budget_inr": "DOC-067",
+              "approval_status": "DOC-010"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 3
+    }
+  ],
+  "failure_category": null
+}

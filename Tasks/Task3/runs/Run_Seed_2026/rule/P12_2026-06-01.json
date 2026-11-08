@@ -1,0 +1,323 @@
+{
+  "method": "rule",
+  "pid": "P12",
+  "query_date": "2026-06-01",
+  "question": "As of 2026-06-01, who is responsible for project Quasar Lattice (P12), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": {
+    "leader": "Ananya Sharma",
+    "department": "Mechanical Engineering",
+    "budget_inr": 2050000,
+    "approval_status": "PENDING",
+    "support": {
+      "leader": "DOC-019",
+      "department": "DOC-019",
+      "budget_inr": "DOC-037",
+      "approval_status": "DOC-069"
+    }
+  },
+  "truth": {
+    "leader": "Ananya Sharma",
+    "department": "Mechanical Engineering",
+    "budget_inr": 2050000,
+    "approval_status": "PENDING"
+  },
+  "abstained": false,
+  "exact": true,
+  "grounded": true,
+  "success": true,
+  "grounding_reasons": [],
+  "termination": "finish",
+  "total_cost": 9,
+  "n_search": 3,
+  "n_read": 3,
+  "budget_remaining": 3,
+  "budget_exhausted": false,
+  "n_llm_calls": 0,
+  "n_invalid": 0,
+  "invalid_by_category": {},
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 0,
+  "seen_ids": [
+    "DOC-019",
+    "DOC-009",
+    "DOC-028",
+    "DOC-014",
+    "DOC-042",
+    "DOC-059",
+    "DOC-037",
+    "DOC-038",
+    "DOC-072",
+    "DOC-069",
+    "DOC-007",
+    "DOC-012",
+    "DOC-058"
+  ],
+  "read_ids": [
+    "DOC-019",
+    "DOC-037",
+    "DOC-069"
+  ],
+  "J": 0.9,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P12 project registration leader department\", \"k\": 5}, \"justification\": \"rule: locate REG documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P12 project registration leader department",
+          "k": 5
+        },
+        "justification": "rule: locate REG documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-019",
+            "title": "Project Registration: Quasar Lattice (P12)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-009",
+            "title": "Project Registration: Cobalt Nexus (P07)",
+            "issue_date": "2026-01-18",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-028",
+            "title": "Project Registration: Meridian Forge (P11)",
+            "issue_date": "2026-01-13",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-014",
+            "title": "Project Registration: Vertex Grid (P03)",
+            "issue_date": "2026-01-12",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-042",
+            "title": "Project Registration: Helios Relay (P01)",
+            "issue_date": "2026-01-06",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-019\"}, \"justification\": \"rule: read REG for leader\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-019"
+        },
+        "justification": "rule: read REG for leader"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-019",
+          "title": "Project Registration: Quasar Lattice (P12)",
+          "issue_date": "2026-01-08",
+          "effective_date": null,
+          "status": "ISSUED",
+          "content": "Registration record for research project Quasar Lattice (P12). The designated project leader is Ananya Sharma, and the project is housed in the Department of Mechanical Engineering. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P12 budget authorization\", \"k\": 5}, \"justification\": \"rule: locate BUD documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P12 budget authorization",
+          "k": 5
+        },
+        "justification": "rule: locate BUD documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-059",
+            "title": "Initial Budget Authorization: Quasar Lattice (P12)",
+            "issue_date": "2026-01-23",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-037",
+            "title": "Revised Budget Authorization: Quasar Lattice (P12)",
+            "issue_date": "2026-04-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-019",
+            "title": "Project Registration: Quasar Lattice (P12)",
+            "issue_date": "2026-01-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-038",
+            "title": "Initial Approval Status Notice: Quasar Lattice (P12)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-072",
+            "title": "Draft Memorandum: Quasar Lattice (P12)",
+            "issue_date": "2026-03-06",
+            "status": "DRAFT"
+          }
+        ]
+      },
+      "budget_after": 8
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-037\"}, \"justification\": \"rule: read BUD_REV for budget_inr\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-037"
+        },
+        "justification": "rule: read BUD_REV for budget_inr"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 8,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-037",
+          "title": "Revised Budget Authorization: Quasar Lattice (P12)",
+          "issue_date": "2026-04-08",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Quasar Lattice (P12), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 2,050,000. This record was prepared by the Research Finance Office and filed in the institutional repository."
+        }
+      },
+      "budget_after": 6
+    },
+    {
+      "step": 5,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"P12 approval status notice\", \"k\": 5}, \"justification\": \"rule: locate APP documents\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "P12 approval status notice",
+          "k": 5
+        },
+        "justification": "rule: locate APP documents"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 6,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-038",
+            "title": "Initial Approval Status Notice: Quasar Lattice (P12)",
+            "issue_date": "2026-01-30",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-069",
+            "title": "Revised Approval Status Notice: Quasar Lattice (P12)",
+            "issue_date": "2026-04-08",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-007",
+            "title": "Initial Approval Status Notice: Helios Forge (P06)",
+            "issue_date": "2026-01-29",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-012",
+            "title": "Initial Approval Status Notice: Helios Relay (P01)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-058",
+            "title": "Initial Approval Status Notice: Vertex Relay (P10)",
+            "issue_date": "2026-01-22",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 6,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-069\"}, \"justification\": \"rule: read APP_REV for approval_status\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-069"
+        },
+        "justification": "rule: read APP_REV for approval_status"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 5,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-069",
+          "title": "Revised Approval Status Notice: Quasar Lattice (P12)",
+          "issue_date": "2026-04-08",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Quasar Lattice (P12), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is PENDING. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 3
+    },
+    {
+      "step": 7,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"Ananya Sharma\", \"department\": \"Mechanical Engineering\", \"budget_inr\": 2050000, \"approval_status\": \"PENDING\", \"support\": {\"leader\": \"DOC-019\", \"department\": \"DOC-019\", \"budget_inr\": \"DOC-037\", \"approval_status\": \"DOC-069\"}}}, \"justification\": \"rule: evidence complete or exhausted\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "Ananya Sharma",
+            "department": "Mechanical Engineering",
+            "budget_inr": 2050000,
+            "approval_status": "PENDING",
+            "support": {
+              "leader": "DOC-019",
+              "department": "DOC-019",
+              "budget_inr": "DOC-037",
+              "approval_status": "DOC-069"
+            }
+          }
+        },
+        "justification": "rule: evidence complete or exhausted"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 3
+    }
+  ],
+  "failure_category": null
+}

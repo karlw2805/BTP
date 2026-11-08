@@ -1,0 +1,232 @@
+{
+  "method": "rag",
+  "pid": "P08",
+  "query_date": "2026-03-01",
+  "question": "As of 2026-03-01, who is responsible for project Quasar Nexus (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+  "answer": "INSUFFICIENT EVIDENCE",
+  "truth": {
+    "leader": "Meera Reddy",
+    "department": "Computer Science",
+    "budget_inr": 3400000,
+    "approval_status": "REJECTED"
+  },
+  "abstained": true,
+  "exact": false,
+  "grounded": false,
+  "success": false,
+  "grounding_reasons": [
+    "abstained_or_malformed"
+  ],
+  "termination": "scripted_invalid",
+  "total_cost": 7,
+  "n_search": 1,
+  "n_read": 3,
+  "budget_remaining": 5,
+  "budget_exhausted": false,
+  "n_llm_calls": 1,
+  "n_invalid": 1,
+  "invalid_by_category": {
+    "unsupported_citation": 1
+  },
+  "n_malformed": 0,
+  "n_unfaithful": 0,
+  "llm_facts": [],
+  "n_unauthorized": 1,
+  "seen_ids": [
+    "DOC-017",
+    "DOC-034",
+    "DOC-027",
+    "DOC-071",
+    "DOC-031"
+  ],
+  "read_ids": [
+    "DOC-017",
+    "DOC-034",
+    "DOC-027"
+  ],
+  "J": 10.719999999999999,
+  "trace": [
+    {
+      "step": 1,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"search\", \"args\": {\"query\": \"As of 2026-03-01, who is responsible for project Quasar Nexus (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?\", \"k\": 5}, \"justification\": \"fixed RAG: search the question\"}",
+      "proposal": {
+        "action": "search",
+        "args": {
+          "query": "As of 2026-03-01, who is responsible for project Quasar Nexus (P08), which department does the project belong to, what is its authorized budget, and what is its approval status?",
+          "k": 5
+        },
+        "justification": "fixed RAG: search the question"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 12,
+      "observation": {
+        "search_results": [
+          {
+            "doc_id": "DOC-017",
+            "title": "Initial Approval Status Notice: Quasar Nexus (P08)",
+            "issue_date": "2026-01-23",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-034",
+            "title": "Revised Approval Status Notice: Quasar Nexus (P08)",
+            "issue_date": "2026-04-22",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-027",
+            "title": "Revised Budget Authorization: Quasar Nexus (P08)",
+            "issue_date": "2026-04-16",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-071",
+            "title": "Initial Budget Authorization: Quasar Nexus (P08)",
+            "issue_date": "2026-01-26",
+            "status": "ISSUED"
+          },
+          {
+            "doc_id": "DOC-031",
+            "title": "Project Registration: Quasar Nexus (P08)",
+            "issue_date": "2026-01-05",
+            "status": "ISSUED"
+          }
+        ]
+      },
+      "budget_after": 11
+    },
+    {
+      "step": 2,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-017\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-017"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 11,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-017",
+          "title": "Initial Approval Status Notice: Quasar Nexus (P08)",
+          "issue_date": "2026-01-23",
+          "effective_date": "2026-02-01",
+          "status": "ISSUED",
+          "content": "Approval status notice for project Quasar Nexus (P08), effective 1 February 2026. The approval status of the project is REJECTED. This is the initial notice. Questions regarding this record should be directed to the Office of Sponsored Research."
+        }
+      },
+      "budget_after": 9
+    },
+    {
+      "step": 3,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-034\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-034"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 9,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-034",
+          "title": "Revised Approval Status Notice: Quasar Nexus (P08)",
+          "issue_date": "2026-04-22",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised approval status notice for project Quasar Nexus (P08), effective 1 May 2026. This revision replaces the initial notice. The approval status of the project is APPROVED. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 7
+    },
+    {
+      "step": 4,
+      "llm_calls": 0,
+      "raw": "{\"action\": \"read\", \"args\": {\"doc_id\": \"DOC-027\"}, \"justification\": \"fixed RAG: read top-3\"}",
+      "proposal": {
+        "action": "read",
+        "args": {
+          "doc_id": "DOC-027"
+        },
+        "justification": "fixed RAG: read top-3"
+      },
+      "valid": true,
+      "category": "ok",
+      "budget_before": 7,
+      "observation": {
+        "document": {
+          "doc_id": "DOC-027",
+          "title": "Revised Budget Authorization: Quasar Nexus (P08)",
+          "issue_date": "2026-04-16",
+          "effective_date": "2026-05-01",
+          "status": "ISSUED",
+          "content": "Revised budget authorization for project Quasar Nexus (P08), effective 1 May 2026. This revision replaces the initial budget authorization. The authorized budget for the project is INR 3,750,000. The contents are subject to the standard institutional review cycle."
+        }
+      },
+      "budget_after": 5
+    },
+    {
+      "step": 5,
+      "llm_calls": 1,
+      "raw": "{\"action\": \"finish\", \"args\": {\"answer\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": 3750000, \"approval_status\": \"APPROVED\", \"support\": {\"leader\": \"INSUFFICIENT EVIDENCE\", \"department\": \"INSUFFICIENT EVIDENCE\", \"budget_inr\": \"DOC-027\", \"approval_status\": \"DOC-034\"}}}, \"justification\": \"As of 2026-03-01, the latest applicable ISSUED document for approval status is DOC-017, which has an effective date of 2026-02-01 and states the approval status is REJECTED. However, DOC-034, which revises the approval status to APPROVED, has an effective date of 2026-05-01, which is after the query date, so it is not applicable. Similarly, DOC-027, which authorizes a budget of INR 3,750,000, is effective from 2026-05-01 and is not applicable. The project registration, which would provide leader and department information, is not included in the documents. Therefore, while the budget and approval status from applicable documents are used, leader and department cannot be determined from the provided documents.\"}",
+      "proposal": {
+        "action": "finish",
+        "args": {
+          "answer": {
+            "leader": "INSUFFICIENT EVIDENCE",
+            "department": "INSUFFICIENT EVIDENCE",
+            "budget_inr": 3750000,
+            "approval_status": "APPROVED",
+            "support": {
+              "leader": "INSUFFICIENT EVIDENCE",
+              "department": "INSUFFICIENT EVIDENCE",
+              "budget_inr": "DOC-027",
+              "approval_status": "DOC-034"
+            }
+          }
+        },
+        "justification": "As of 2026-03-01, the latest applicable ISSUED document for approval status is DOC-017, which has an effective date of 2026-02-01 and states the approval status is REJECTED. However, DOC-034, which revises the approval status to APPROVED, has an effective date of 2026-05-01, which is after the query date, so it is not applicable. Similarly, DOC-027, which authorizes a budget of INR 3,750,000, is effective from 2026-05-01 and is not applicable. The project registration, which would provide leader and department information, is not included in the documents. Therefore, while the budget and approval status from applicable documents are used, leader and department cannot be determined from the provided documents."
+      },
+      "valid": false,
+      "category": "unsupported_citation",
+      "budget_before": 5,
+      "message": "support cites documents you have not read: ['INSUFFICIENT EVIDENCE', 'INSUFFICIENT EVIDENCE']."
+    }
+  ],
+  "failure_category": "insufficient_evidence",
+  "failure_analysis": {
+    "failure_category": "insufficient_evidence",
+    "origin_explanation": "LLM Policy / Premature Abstention: The agent chose to abstain (INSUFFICIENT EVIDENCE) even though candidate documents had been retrieved by search and budget was still available.",
+    "grounding_violations": [
+      "abstained_or_malformed"
+    ],
+    "attribute_discrepancies": {
+      "leader": {
+        "claimed": null,
+        "true": "Meera Reddy"
+      },
+      "department": {
+        "claimed": null,
+        "true": "Computer Science"
+      },
+      "budget_inr": {
+        "claimed": null,
+        "true": 3400000
+      },
+      "approval_status": {
+        "claimed": null,
+        "true": "REJECTED"
+      }
+    }
+  }
+}
